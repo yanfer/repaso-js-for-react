@@ -51,6 +51,7 @@ console.log(add3(10));
 /* ------OBJETOS------ */
 
 const user = {
+ /* Propiedades */
  name: "Mario",
  lastname: "Bros",
  age: 30,
@@ -61,7 +62,8 @@ const user = {
  },
  friends: ["Yoshi", "Luigi", "Peach"],
  active: true,
- sendMail: function () {
+ /* Metodos */
+ sendMail() {
   return "sending email...";
  },
 };
@@ -72,3 +74,35 @@ console.log(user.address.city);
 console.log(user.sendMail);
 /* si quiero que ejecute la funcion, es asi */
 console.log(user.sendMail());
+
+/* SHORTHAND PROPERTY NAMES */
+const name = "laptop";
+const price = 10000;
+
+const newProduct = {
+ /* antes se escribia
+    name: name
+    price: price */
+ name,
+ price,
+};
+
+console.log(newProduct);
+
+/* MANIPULACION DEL DOM */
+//Se pueden crear elementos desde JS
+const title = document.createElement("h2");
+//A ese objeto creado se puede modificar, en este caso, vamos a agregar texto
+title.innerText = "Hola mundo desde JS";
+//Y se pueden agregar a las etiquetas dentro del documento con el metodo append
+document.body.append(title);
+
+const button = document.createElement("button");
+button.innerText = "click";
+//podemos hacer que este boton tenga una funcion con un event handler o manejador de eventos
+button.addEventListener("click", function () {
+ title.innerText = "Texto actualizado con JS";
+ alert("Se realizo un click");
+ console.log("Hola mundo");
+});
+document.body.append(button);
