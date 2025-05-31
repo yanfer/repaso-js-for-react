@@ -261,3 +261,85 @@ button4.style = `background: ${
  isAuthorized ? background : "blue"
 }; color: ${color};`;
 //Tambien se pueden usar operadores ternarios dentro de los string literals como condicionales
+
+/* ------METODOS DE ARRAYS (MAP, FILTER, FOR EACH, CONCAT)------ */
+
+//Si quisieramos hacer un bucle de un arreglo, hariamos lo siguiente
+
+const names = ["Nya", "Jordan"];
+
+for (let i = 0; i < names.length; i++) {
+ const element = names[i];
+ console.log(element);
+}
+
+/* FOREACH */
+//Pero en JS los arreglos tienen metodos que ayudan a agilizar las cosas
+//la funcion forEach sirve para lo mismo que arriba
+names.forEach(function (name) {
+ console.log(name);
+});
+
+/* MAP */
+//la funcion map hace lo mismo pero lo retorna en un nuevo arreglo, el cual podemos guardar en una variable
+//algo a tener en cuenta es que siempre tiene que retornar un valor, si no sale undefined, por eso se usa para guardar valores en una variable creando un nuevo arreglo
+const newNames = names.map(function (name) {
+ return name;
+});
+
+console.log(newNames);
+
+/* FIND */
+//Al igual que map recorre cada uno de los elementos, solo que podemos poner una condicion dentro de la funcion
+
+const nameFound = names.find(function (name) {
+ if (name === "Jordan") {
+  return name;
+ }
+});
+
+console.log(nameFound);
+
+/* FILTER */
+//Filter nos ayuda a crear un nuevo arreglo solo con los elementos que hayamos filtrado. Sirve para quitar elementos de un arreglo, es como un delete.
+
+const nameFiltered = names.filter(function (name) {
+ if (name !== "Jordan") {
+  return name;
+ }
+});
+
+console.log(nameFiltered);
+
+/* CONCAT */
+//Concat sirve para unir mas nombres a un arreglo y no afecta a los arreglos originales
+const moreNames = ["Peris", "Udyr"];
+
+console.log(names.concat(moreNames));
+
+/* SPREAD OPERATOR */
+//concat no es la unica forma de unir arrays, tambien podemos hacer lo siguiente
+
+console.log([...names, ...newNames]);
+
+//no solo funciona con arreglos, tambien funcion a con objetos
+
+const user3 = {
+ name: "bob",
+ lastname: "mark",
+};
+
+const address = {
+ street: "123 main st ",
+ city: "tegucigalpa",
+};
+
+const userInfo = {
+ ...user3,
+ ...address,
+};
+
+console.log(userInfo); //{name: 'bob', lastname: 'mark', street: '123 main st ', city: 'tegucigalpa'}
+
+/* MODULOS ECMASCRIPT */
+//Un concepto de javascrip que se usa bastante en react son la forma de dividir una aplicacion en multiples archivos, se les conoce como modulos
