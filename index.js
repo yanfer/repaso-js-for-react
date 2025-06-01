@@ -320,7 +320,7 @@ console.log(names.concat(moreNames));
 /* SPREAD OPERATOR */
 //concat no es la unica forma de unir arrays, tambien podemos hacer lo siguiente
 
-console.log([...names, ...newNames]);
+console.log([...names, ...moreNames]);
 
 //no solo funciona con arreglos, tambien funcion a con objetos
 
@@ -343,3 +343,11 @@ console.log(userInfo); //{name: 'bob', lastname: 'mark', street: '123 main st ',
 
 /* MODULOS ECMASCRIPT */
 //Un concepto de javascrip que se usa bastante en react son la forma de dividir una aplicacion en multiples archivos, se les conoce como modulos
+// para poder usar modulos de js en html, hay que poner type = "module" en las propiedades de la etiqueta script
+
+import { addMore, multiply, active, points, title2 } from "./add.js";
+
+console.log(addMore(10, 10));
+
+console.log(multiply(2, 5));
+console.log(active, points, title2);
